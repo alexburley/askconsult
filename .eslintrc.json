@@ -1,0 +1,48 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+
+  "env": {
+    "jest/globals": true
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "security",
+    "promise",
+    "jest",
+    "react",
+    "simple-import-sort",
+    "prettier"
+  ],
+  "globals": {
+    "React": "readonly",
+    "jest": "readonly"
+  },
+  "extends": [
+    "eslint:recommended",
+    "standard",
+    "plugin:security/recommended",
+    "plugin:promise/recommended",
+    "next/core-web-vitals",
+    "plugin:react/recommended",
+    "plugin:import/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "camelcase": "off",
+    "no-unused-vars": "off",
+    "import/namespace": "off",
+    "import/no-named-as-default": "off",
+    "import/no-named-as-default-member": "off",
+    "import/no-named-as-export": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      { "argsIgnorePattern": "_$" }
+    ],
+    "simple-import-sort/imports": "warn",
+    "simple-import-sort/exports": "warn",
+    "import/export": "off",
+    "react-hooks/rules-of-hooks": "off"
+  }
+}

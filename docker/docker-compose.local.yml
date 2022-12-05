@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  pg:
+    container_name: postgres-prisma-local
+    image: postgres:13
+    restart: always
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: askconsult
+# volumes:
+#   db:
+#     driver: local

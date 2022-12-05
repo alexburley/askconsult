@@ -1,0 +1,5 @@
+- Implement database
+- Consistent design model
+- Mobile friendly
+- readme
+- makefile
