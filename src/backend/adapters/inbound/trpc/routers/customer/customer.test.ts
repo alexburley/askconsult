@@ -1,4 +1,4 @@
-import userModelDummy from "@adapters/outbound/user-repository/test/user-item-dummy";
+import userModelDummy from "@adapters/outbound/repositories/user-repository/test/user-item-dummy";
 import UserModel from "@models/user";
 
 import { useCustomerDomainMock } from "../../../../../domain/customer/test/hooks";

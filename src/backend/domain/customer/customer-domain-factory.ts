@@ -1,5 +1,5 @@
-import ConsultantApplicationRepositoryFactory from "@adapters/outbound/consultant-application-repository/consultant-application-repository-factory";
-import UserRepositoryFactory from "@adapters/outbound/user-repository/user-repository-factory";
+import ConsultantApplicationRepositoryFactory from "@adapters/outbound/repositories/consultant-application-repository/consultant-application-repository-factory";
+import UserRepositoryFactory from "@adapters/outbound/repositories/user-repository/user-repository-factory";
 
 import CustomerDomain from "./customer-domain";
 

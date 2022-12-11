@@ -1,19 +1,19 @@
-import ConsultantRepositoryFactory from "@adapters/outbound/consultant-repository/consultants-repository-factory";
+import ConsultantRepositoryFactory from "@adapters/outbound/repositories/consultant-repository/consultants-repository-factory";
 import {
   ConsultantRepositoryMock,
   ConsultantRepositoryMockType,
-} from "@adapters/outbound/consultant-repository/test/consultant-repository-mock";
+} from "@adapters/outbound/repositories/consultant-repository/test/consultant-repository-mock";
 import EventPublisherFactory from "@adapters/outbound/event-publisher/event-publisher-factory";
 import {
   EventPublisherMock,
   EventPublisherMockType,
 } from "@adapters/outbound/event-publisher/test/event-publisher-mock";
-import OrderRepositoryFactory from "@adapters/outbound/order-repository/orders-repository-factory";
-import orderItemDummy from "@adapters/outbound/order-repository/test/order-item-dummy";
+import OrderRepositoryFactory from "@adapters/outbound/repositories/order-repository/orders-repository-factory";
+import orderItemDummy from "@adapters/outbound/repositories/order-repository/test/order-item-dummy";
 import {
   OrderRepositoryMock,
   OrderRepositoryMockType,
-} from "@adapters/outbound/order-repository/test/order-repository-mock";
+} from "@adapters/outbound/repositories/order-repository/test/order-repository-mock";
 import ConsultantDummy from "@models/consultant/test/consultant-dummy";
 
 import AskDomain from ".";

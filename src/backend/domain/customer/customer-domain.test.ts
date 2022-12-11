@@ -1,14 +1,14 @@
-import ConsultantApplicationRepositoryFactory from "@adapters/outbound/consultant-application-repository/consultant-application-repository-factory";
+import ConsultantApplicationRepositoryFactory from "@adapters/outbound/repositories/consultant-application-repository/consultant-application-repository-factory";
 import {
   ConsultantApplicationRepositoryMock,
   ConsultantApplicationRepositoryMockType,
-} from "@adapters/outbound/consultant-application-repository/test/consultant-application-repository-mock";
-import userModelDummy from "@adapters/outbound/user-repository/test/user-item-dummy";
+} from "@adapters/outbound/repositories/consultant-application-repository/test/consultant-application-repository-mock";
+import userModelDummy from "@adapters/outbound/repositories/user-repository/test/user-item-dummy";
 import {
   UserRepositoryMock,
   UserRepositoryMockType,
-} from "@adapters/outbound/user-repository/test/user-repository-mock";
-import UserRepositoryFactory from "@adapters/outbound/user-repository/user-repository-factory";
+} from "@adapters/outbound/repositories/user-repository/test/user-repository-mock";
+import UserRepositoryFactory from "@adapters/outbound/repositories/user-repository/user-repository-factory";
 import ConsultantApplicationDummy from "@models/consultant-application/test/consultant-application-dummy";
 
 import CustomerDomain from "./customer-domain";

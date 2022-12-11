@@ -1,6 +1,6 @@
-import ConsultantRepositoryFactory from "@adapters/outbound/consultant-repository/consultants-repository-factory";
+import ConsultantRepositoryFactory from "@adapters/outbound/repositories/consultant-repository/consultants-repository-factory";
 import EventPublisherFactory from "@adapters/outbound/event-publisher/event-publisher-factory";
-import OrderRepositoryFactory from "@adapters/outbound/order-repository/orders-repository-factory";
+import OrderRepositoryFactory from "@adapters/outbound/repositories/order-repository/orders-repository-factory";
 
 import AskDomain from "./ask-domain";
 

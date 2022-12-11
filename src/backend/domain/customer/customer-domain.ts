@@ -1,5 +1,5 @@
-import ConsultantApplicationRepositoryAdapter from "@adapters/outbound/consultant-application-repository";
-import UserRepositoryAdapter from "@adapters/outbound/user-repository";
+import ConsultantApplicationRepositoryAdapter from "@adapters/outbound/repositories/consultant-application-repository";
+import UserRepositoryAdapter from "@adapters/outbound/repositories/user-repository";
 import ConsultantApplicationModel from "@models/consultant-application";
 import { UserModel } from "@models/user/user";
 
