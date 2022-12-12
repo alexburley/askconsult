@@ -10,7 +10,6 @@ const StyledAnchor = styled.a`
   }
 `;
 
-// TODO: Pull this out into a core props
 export interface LinkProps extends BasePropsWithChildren {
   href: string;
   external?: boolean;

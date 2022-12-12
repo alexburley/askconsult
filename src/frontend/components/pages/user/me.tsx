@@ -40,7 +40,6 @@ const ToggleEditButton = styled.button`
   padding: 0;
   outline: inherit;
 
-  // TODO: Add shared style: clickable text and clickable block
   cursor: pointer;
   &:hover {
     color: ${(p) => p.theme.colors.primary.extradark};
@@ -55,7 +54,6 @@ const CancelButton = styled.button`
   padding: 0;
   outline: inherit;
 
-  // TODO: Add shared style: clickable text and clickable block
   cursor: pointer;
   &:hover {
     color: ${(p) => p.theme.colors.primary.extradark};

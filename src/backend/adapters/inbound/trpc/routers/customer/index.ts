@@ -32,7 +32,6 @@ const updateMyProfile = procedure
   .mutation(async ({ ctx, input }) => {
     const customer = CustomerDomainFactory.instance({ traceId: ctx.traceId });
     const profile = await customer.updateUserProfile({
-      // TODO: Make sure this is typesafe .. ie protect route
       userId: ctx.user.id,
       name: input.profile.name,
     });
