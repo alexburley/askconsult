@@ -5,7 +5,7 @@ import FormField from "@components/library/forms/form-field";
 import FormHandler from "@components/library/forms/form-handler";
 import TRPCClient from "@helpers/api";
 import { BP_TABLET } from "@styles/themes";
-import RoutingHelper from "frontend/helpers/routing";
+import RoutesHelper from "@helpers/routes";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -75,7 +75,7 @@ const ProcessItem = styled.li`
 `;
 
 const ApplyToBeConsultantPage = () => {
-  const router = RoutingHelper.useRouter();
+  const router = RoutesHelper.useRouter();
   const { mutate: sendConsultantApplication } =
     TRPCClient.consultants.sendConsultantApplication.useMutation();
 
@@ -89,7 +89,7 @@ const ApplyToBeConsultantPage = () => {
         expectedRate: values.expectedRate,
       },
     });
-    router.push(RoutingHelper.routes.home());
+    router.push(RoutesHelper.routes.home());
   };
 
   return (

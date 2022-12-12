@@ -1,6 +1,6 @@
 import PageWrapper from "@components/contextual/page-wrapper";
 import ConsultantModel from "@models/consultant/consultant";
-import RoutingHelper from "frontend/helpers/routing";
+import RoutesHelper from "@helpers/routes";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 
@@ -36,8 +36,8 @@ const WizardStepText = styled.span``;
 
 const BookConsultantPage = ({ className }: BookConsultantProps) => {
   const [consultant, setConsultant] = useState<ConsultantModel>();
-  const router = RoutingHelper.useRouter();
-  const { consultantId } = RoutingHelper.usePathParams(router);
+  const router = RoutesHelper.useRouter();
+  const { consultantId } = RoutesHelper.usePathParams(router);
 
   return (
     <PageWrapper className={className}>

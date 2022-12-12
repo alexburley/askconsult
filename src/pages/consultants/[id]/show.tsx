@@ -1,11 +1,11 @@
 import PageWrapper from "@components/contextual/page-wrapper";
 import Wizard from "@components/library/wizard";
 import WizardActionFactory from "@components/library/wizard/wizard-action-factory";
-import RoutingHelper from "frontend/helpers/routing";
+import RoutesHelper from "@helpers/routes";
 
 export default function ShowConsultantPage() {
-  const router = RoutingHelper.useRouter();
-  const { consultantId } = RoutingHelper.usePathParams(router);
+  const router = RoutesHelper.useRouter();
+  const { consultantId } = RoutesHelper.usePathParams(router);
   return (
     <PageWrapper>
       <Wizard

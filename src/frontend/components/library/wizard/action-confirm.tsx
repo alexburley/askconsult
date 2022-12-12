@@ -1,4 +1,4 @@
-import RoutingHelper from "frontend/helpers/routing";
+import RoutesHelper from "@helpers/routes";
 import { useSiteStore } from "frontend/helpers/site-store";
 import { useState } from "react";
 import styled from "styled-components";
@@ -61,7 +61,7 @@ const ModalContainer = styled.div`
 
 const ActionConfirm = ({ className, consultantId }: ActionConfirmProps) => {
   const { query } = useSiteStore();
-  const router = RoutingHelper.useRouter();
+  const router = RoutesHelper.useRouter();
   const [queryExpanded, setQueryExpanded] = useState(false);
   const [email, setEmail] = useState("");
   const [open, setOpen] = useState(false);

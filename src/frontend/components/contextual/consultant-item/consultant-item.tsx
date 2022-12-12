@@ -4,6 +4,7 @@ import Card from "@components/library/card";
 import Image from "@components/library/image";
 import Link from "@components/library/link";
 import Rating from "@components/library/rating";
+import RoutesHelper from "@helpers/routes";
 import { ConsultantResult } from "@models/consultant";
 import {
   BP_LAPTOP_INT,
@@ -12,7 +13,6 @@ import {
   BP_TABLET_INT,
   windowIsSmallerThanTablet,
 } from "@styles/themes";
-import RoutingHelper from "frontend/helpers/routing";
 import WindowHelper from "frontend/helpers/window";
 import styled from "styled-components";
 
@@ -135,7 +135,7 @@ const ConsultantItem = ({ consultant }: { consultant: ConsultantResult }) => {
             <Rate>£2.00</Rate>
             <RateUnit>Per hour</RateUnit>
           </div>
-          <Link href={RoutingHelper.routes.showConsultant(consultant.id)}>
+          <Link href={RoutesHelper.routes.bookConsultant(consultant.id)}>
             <BookButton variant="contained">Book</BookButton>
           </Link>
           <Rating

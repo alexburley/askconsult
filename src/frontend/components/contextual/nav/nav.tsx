@@ -1,5 +1,6 @@
 import Button from "@components/library/button";
 import Icon, { BurgerIcon, UserIcon } from "@components/library/icon";
+import RoutesHelper from "@helpers/routes";
 import {
   BP_PHONE,
   BP_TABLET,
@@ -7,7 +8,6 @@ import {
   windowIsSmallerThanTablet,
 } from "@styles/themes";
 import AuthHelper from "frontend/helpers/auth";
-import RoutingHelper from "frontend/helpers/routing";
 import WindowHelper from "frontend/helpers/window";
 import { useState } from "react";
 import styled, { css } from "styled-components";
@@ -119,7 +119,7 @@ const Nav = ({ className }: NavProps) => {
     <>
       <StyledNav className={className}>
         <NavGroupContainer pos="L">
-          <LogoLink href={RoutingHelper.routes.home()}>
+          <LogoLink href={RoutesHelper.routes.home()}>
             {isTabletOrGreater ? "AskConsult" : "AC"}
           </LogoLink>
         </NavGroupContainer>
@@ -129,17 +129,17 @@ const Nav = ({ className }: NavProps) => {
               if (user) {
                 return (
                   <>
-                    <Link href={RoutingHelper.routes.apply()}>
+                    <Link href={RoutesHelper.routes.applyToBeAConsultant()}>
                       <ApplyButton variant="contained">
                         Be a consultant
                       </ApplyButton>
                     </Link>
-                    <Link href={RoutingHelper.routes.profile()}>
+                    <Link href={RoutesHelper.routes.profile()}>
                       <StyledIcon Icon={UserIcon} />
                     </Link>
                     <NavTextLink
                       id="logout"
-                      href={RoutingHelper.routes.logout()}
+                      href={RoutesHelper.routes.logout()}
                     >
                       Logout
                     </NavTextLink>
@@ -148,10 +148,10 @@ const Nav = ({ className }: NavProps) => {
               } else {
                 return (
                   <>
-                    <NavTextLink href={RoutingHelper.routes.authenticate()}>
+                    <NavTextLink href={RoutesHelper.routes.authenticate()}>
                       Sign Up
                     </NavTextLink>
-                    <NavTextLink href={RoutingHelper.routes.authenticate()}>
+                    <NavTextLink href={RoutesHelper.routes.authenticate()}>
                       Login
                     </NavTextLink>
                   </>
@@ -177,13 +177,15 @@ const Nav = ({ className }: NavProps) => {
             if (user) {
               return (
                 <>
-                  <NavTextLink href={RoutingHelper.routes.apply()}>
+                  <NavTextLink
+                    href={RoutesHelper.routes.applyToBeAConsultant()}
+                  >
                     Apply
                   </NavTextLink>
-                  <NavTextLink href={RoutingHelper.routes.profile()}>
+                  <NavTextLink href={RoutesHelper.routes.profile()}>
                     My Profile
                   </NavTextLink>
-                  <NavTextLink href={RoutingHelper.routes.logout()}>
+                  <NavTextLink href={RoutesHelper.routes.logout()}>
                     Logout
                   </NavTextLink>
                 </>
@@ -191,10 +193,10 @@ const Nav = ({ className }: NavProps) => {
             } else {
               return (
                 <>
-                  <NavTextLink href={RoutingHelper.routes.authenticate()}>
+                  <NavTextLink href={RoutesHelper.routes.authenticate()}>
                     Sign Up
                   </NavTextLink>
-                  <NavTextLink href={RoutingHelper.routes.authenticate()}>
+                  <NavTextLink href={RoutesHelper.routes.authenticate()}>
                     Login
                   </NavTextLink>
                 </>

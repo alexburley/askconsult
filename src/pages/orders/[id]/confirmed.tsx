@@ -1,7 +1,7 @@
+import PageWrapper from "@components/contextual/page-wrapper";
 import Button from "@components/library/button";
 import _Card from "@components/library/card";
-import PageWrapper from "@components/contextual/page-wrapper";
-import RoutingHelper from "frontend/helpers/routing";
+import RoutesHelper from "@helpers/routes";
 import styled from "styled-components";
 
 const Card = styled(_Card)`
@@ -32,8 +32,8 @@ const CelebrationIcon = styled.span`
 `;
 
 export default function QueryConsultantPage() {
-  const router = RoutingHelper.useRouter();
-  const { orderId } = RoutingHelper.usePathParams(router);
+  const router = RoutesHelper.useRouter();
+  const { orderId } = RoutesHelper.usePathParams(router);
   return (
     <PageWrapper>
       <Card>
@@ -51,7 +51,7 @@ export default function QueryConsultantPage() {
         <Button
           variant="contained"
           onClick={() => {
-            return router.push(RoutingHelper.routes.orderStatus(orderId));
+            return router.push(RoutesHelper.routes.home());
           }}
         >
           View order status

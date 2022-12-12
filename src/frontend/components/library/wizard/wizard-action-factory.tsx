@@ -1,4 +1,5 @@
-import RoutingHelper from "frontend/helpers/routing";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import RoutesHelper from "@helpers/routes";
 
 type Pointer = {
   href: string;
@@ -17,7 +18,7 @@ class WizardActionFactory {
       name: "Confirm",
       state: {},
       previous: {
-        href: RoutingHelper.routes.queryConsultant(id),
+        href: RoutesHelper.routes.home(),
         label: "Query",
       },
     };
@@ -28,11 +29,11 @@ class WizardActionFactory {
       name: "Query",
       state: {},
       previous: {
-        href: RoutingHelper.routes.showConsultant(id),
+        href: RoutesHelper.routes.home(),
         label: "Show",
       },
       next: {
-        href: RoutingHelper.routes.confirmConsultantQuery(id),
+        href: RoutesHelper.routes.home(),
         label: "Confirm",
       },
     };
@@ -43,11 +44,11 @@ class WizardActionFactory {
       name: "Show",
       state: {},
       previous: {
-        href: RoutingHelper.routes.home(),
+        href: RoutesHelper.routes.home(),
         label: "Search",
       },
       next: {
-        href: RoutingHelper.routes.queryConsultant(id),
+        href: RoutesHelper.routes.home(),
         label: "Query",
       },
     };

@@ -1,5 +1,4 @@
-// TODO: Rethink services
-import RoutingHelper from "frontend/helpers/routing";
+import RoutesHelper from "@helpers/routes";
 
 type LinkOptions = {
   external?: boolean;
@@ -12,36 +11,36 @@ const SITE_MAP_ITEMS: SiteMapItem[] = [
   [
     "AskConsult",
     [
-      ["Home", RoutingHelper.routes.home()],
-      ["About Us", RoutingHelper.routes.home()],
-      ["Contact Us", RoutingHelper.routes.home()],
-      ["Terms of Service", RoutingHelper.routes.home()],
-      ["Privacy", RoutingHelper.routes.home()],
+      ["Home", RoutesHelper.routes.home()],
+      ["About Us", RoutesHelper.routes.aboutUs()],
+      ["Contact Us", RoutesHelper.routes.contactUs()],
+      ["Terms of Service", RoutesHelper.routes.terms()],
+      ["Privacy", RoutesHelper.routes.privacy()],
     ],
   ],
   [
     "Clients",
     [
-      ["Consultant Index", RoutingHelper.routes.home()],
-      ["How it works", RoutingHelper.routes.home()],
-      ["Support", RoutingHelper.routes.home()],
-      ["FAQ", RoutingHelper.routes.home()],
+      ["Consultant Index", RoutesHelper.routes.consultantsIndex()],
+      ["How it works", RoutesHelper.routes.clientHowItWorks()],
+      ["Support", RoutesHelper.routes.clientSupport()],
+      ["FAQ", RoutesHelper.routes.clientFAQ()],
     ],
   ],
   [
     "Consultants",
     [
-      ["Apply", RoutingHelper.routes.home()],
-      ["How it works", RoutingHelper.routes.home()],
-      ["FAQ", RoutingHelper.routes.home()],
+      ["Apply", RoutesHelper.routes.applyToBeAConsultant()],
+      ["How it works", RoutesHelper.routes.consultantHowItWorks()],
+      ["FAQ", RoutesHelper.routes.consultantFAQ()],
     ],
   ],
   [
     "Social",
     [
-      ["Facebook", RoutingHelper.routes.home()],
-      ["Instagram", RoutingHelper.routes.home()],
-      ["Twitter", RoutingHelper.routes.home()],
+      ["Facebook", RoutesHelper.routes.home()],
+      ["Instagram", RoutesHelper.routes.home()],
+      ["Twitter", RoutesHelper.routes.home()],
     ],
   ],
 ];
