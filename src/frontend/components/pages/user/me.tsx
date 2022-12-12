@@ -11,7 +11,7 @@ const Container = styled.div`
   background-color: ${(p) => p.theme.colors.neutral.light};
   flex-direction: column;
   max-width: 800px;
-  margin: 64px 32px;
+  margin: 64px auto;
   padding: ${(p) => p.theme.space.xlarge};
   gap: ${(p) => p.theme.space.medium};
 `;
@@ -62,7 +62,6 @@ const CancelButton = styled.button`
 const StyledEditIcon = styled(Icon)``;
 const StyledCancelIcon = styled(Icon)``;
 
-// TODO: Make sure this works properly
 export default function MePage() {
   const [isEditing, setIsEditing] = useState(false);
   const [name, setName] = useState();
