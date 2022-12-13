@@ -1,5 +1,4 @@
 import ConsultantAvatar from "@components/contextual/consultant-avatar";
-import _ConsultantItem from "@components/contextual/consultant-item";
 import PageWrapper from "@components/contextual/page-wrapper";
 import Button from "@components/library/button";
 import Form from "@components/library/forms/form";
@@ -55,10 +54,10 @@ const ConsultantContainer = styled.div`
   min-width: 40%;
   background-color: ${(p) => p.theme.colors.primary.lightest};
   padding: 32px;
-`;
 
-const ConsultantItem = styled(_ConsultantItem)`
-  flex-direction: column;
+  @media (max-width: ${BP_TABLET}) {
+    flex-direction: row;
+  }
 `;
 
 const BookConsultantPage = () => {
@@ -82,6 +81,8 @@ const BookConsultantPage = () => {
               <ConsultantAvatar
                 avatarURL={consultantQuery.data.result.avatarURL}
               />
+              <h2>{consultantQuery.data.result.name}</h2>
+              <h3>{consultantQuery.data.result.description}</h3>
             </>
           )}
         </ConsultantContainer>
@@ -90,7 +91,9 @@ const BookConsultantPage = () => {
             <StyledApplicationForm>
               <FormLabel htmlFor="query">Query</FormLabel>
               <FormField id="query" name="query" />
-              <FormLabel htmlFor="callLength">Session Length</FormLabel>
+              <FormLabel htmlFor="callLength">
+                Session Length (Minutes)
+              </FormLabel>
               <FormField id="callLength" name="callLength" />
               <FormLabel htmlFor="fullName">Full Name</FormLabel>
               <FormField id="fullName" name="fullName" />
