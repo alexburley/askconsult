@@ -3,7 +3,7 @@ import Form from "@components/library/forms/form";
 import FormField from "@components/library/forms/form-field";
 import FormHandler from "@components/library/forms/form-handler";
 import Icon, { CheckIcon, CrossIcon, EditIcon } from "@components/library/icon";
-import TRPCClient from "@helpers/api/trpc";
+import API from "@helpers/api/trpc";
 import { useRef, useState } from "react";
 import styled from "styled-components";
 
@@ -70,9 +70,9 @@ export default function MePage() {
   const cancelEdit = () => {
     setIsEditing(false);
   };
-  const getProfileQuery = TRPCClient.customers.getMyProfile.useQuery();
+  const getProfileQuery = API.customers.getMyProfile.useQuery();
   const { mutate: updateProfile, isLoading } =
-    TRPCClient.customers.updateMyProfile.useMutation();
+    API.customers.updateMyProfile.useMutation();
 
   return (
     <PageWrapper>

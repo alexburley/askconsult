@@ -1,58 +1,110 @@
+import ConsultantAvatar from "@components/contextual/consultant-avatar";
+import _ConsultantItem from "@components/contextual/consultant-item";
 import PageWrapper from "@components/contextual/page-wrapper";
-import ConsultantModel from "@models/consultant/consultant";
+import Button from "@components/library/button";
+import Form from "@components/library/forms/form";
+import FormField from "@components/library/forms/form-field";
+import FormHandler from "@components/library/forms/form-handler";
+import API from "@helpers/api";
 import RoutesHelper from "@helpers/routes";
-import { useEffect, useState } from "react";
+import { useSiteStore } from "@helpers/site-store";
+import { BP_TABLET } from "@styles/themes";
 import styled from "styled-components";
 
-export interface BookConsultantProps {
-  className?: string;
-}
-
-const WizardStepContainer = styled.div`
+const Container = styled.div`
   display: flex;
-  justify-content: center;
-  background-color: ${(p) => p.theme.colors.primary.light};
-  width: fit-content;
-  margin: auto;
-  padding: 16px 32px;
-  gap: 16px;
+  @media (max-width: ${BP_TABLET}) {
+    flex-direction: column;
+  }
+  height: 100%;
 `;
-const WizardStep = styled.div`
+
+const FormContainer = styled.div`
+  min-width: 60%;
+  text-align: center;
+  padding: 48px 32px 32px 32px;
+`;
+
+const StyledApplicationForm = styled(Form)`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 64px;
+  gap: ${(p) => p.theme.space.medium};
 `;
 
-const WizardStepNumber = styled.div`
-  background-color: ${(p) => p.theme.colors.primary.dark};
-  border-radius: 50%;
-  text-align: center;
-  width: 40px;
-  font-size: 24px;
-  height: 40px;
-`;
-const WizardStepText = styled.span``;
+const StyledApplyButton = styled(Button)`
+  margin-top: ${(p) => p.theme.space.medium};
+  && {
+    font-weight: bold;
+    background-color: ${(p) => p.theme.colors.primary.light};
+    min-width: 80px;
+    max-width: 160px;
+    margin: 8px auto;
 
-const BookConsultantPage = ({ className }: BookConsultantProps) => {
-  const [consultant, setConsultant] = useState<ConsultantModel>();
+    &:hover {
+      background-color: ${(p) => p.theme.colors.primary.dark};
+    }
+  }
+`;
+
+const FormLabel = styled.label`
+  font-weight: bold;
+`;
+
+const ConsultantContainer = styled.div`
+  flex-shrink: 2;
+  min-width: 40%;
+  background-color: ${(p) => p.theme.colors.primary.lightest};
+  padding: 32px;
+`;
+
+const ConsultantItem = styled(_ConsultantItem)`
+  flex-direction: column;
+`;
+
+const BookConsultantPage = () => {
   const router = RoutesHelper.useRouter();
   const { consultantId } = RoutesHelper.usePathParams(router);
+  const { booking, setBooking } = useSiteStore();
+  const consultantQuery = API.consultants.getConsultantByID.useQuery({
+    id: consultantId,
+  });
+  const onSubmit = (values) => {
+    setBooking(values);
+    router.push(RoutesHelper.routes.payForBooking(consultantId));
+  };
 
   return (
-    <PageWrapper className={className}>
-      <WizardStepContainer>
-        {[
-          { step: 1, name: "Query" },
-          { step: 2, name: "Pay" },
-          { step: 3, name: "Confirm" },
-        ].map(({ step, name }) => (
-          <WizardStep key={step}>
-            <WizardStepNumber>{step}</WizardStepNumber>
-            <WizardStepText>{name}</WizardStepText>
-          </WizardStep>
-        ))}
-      </WizardStepContainer>
+    <PageWrapper noPad={true}>
+      <Container>
+        <ConsultantContainer>
+          {consultantQuery.data && (
+            <>
+              <ConsultantAvatar
+                avatarURL={consultantQuery.data.result.avatarURL}
+              />
+            </>
+          )}
+        </ConsultantContainer>
+        <FormContainer>
+          <FormHandler initialValues={booking} onSubmit={onSubmit}>
+            <StyledApplicationForm>
+              <FormLabel htmlFor="query">Query</FormLabel>
+              <FormField id="query" name="query" />
+              <FormLabel htmlFor="callLength">Session Length</FormLabel>
+              <FormField id="callLength" name="callLength" />
+              <FormLabel htmlFor="fullName">Full Name</FormLabel>
+              <FormField id="fullName" name="fullName" />
+              <FormLabel htmlFor="email">Email</FormLabel>
+              <FormField id="email" name="email" />
+              <FormLabel htmlFor="phone">Phone</FormLabel>
+              <FormField id="phone" name="phone" />
+              <StyledApplyButton variant="contained" type="submit">
+                Apply!
+              </StyledApplyButton>
+            </StyledApplicationForm>
+          </FormHandler>
+        </FormContainer>
+      </Container>
     </PageWrapper>
   );
 };

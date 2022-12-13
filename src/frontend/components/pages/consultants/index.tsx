@@ -2,7 +2,7 @@ import ConsultantItem from "@components/contextual/consultant-item";
 import PageWrapper from "@components/contextual/page-wrapper";
 import Link from "@components/library/link";
 import TextField from "@components/library/text-field";
-import TRPCClient from "@helpers/api/trpc";
+import API from "@helpers/api/trpc";
 import { BP_PHONE_INT, BP_TABLET } from "@styles/themes";
 import { useSiteStore } from "frontend/helpers/site-store";
 import WindowHelper from "frontend/helpers/window";
@@ -71,7 +71,7 @@ const ConsultantsIndexPage = () => {
   const { search, setSearch } = useSiteStore();
   const { width } = WindowHelper.useWindowSize();
   const [consultants, setConsultants] = useState([]);
-  const c = TRPCClient.consultants.listConsultants.useQuery();
+  const c = API.consultants.listConsultants.useQuery();
   useEffect(() => {
     c.data && setConsultants(c.data.result);
   }, [c.data]);

@@ -1,7 +1,6 @@
 import { LOREM_IPSUM } from "@common/constant";
 import Button from "@components/library/button";
 import Card from "@components/library/card";
-import Image from "@components/library/image";
 import Link from "@components/library/link";
 import Rating from "@components/library/rating";
 import RoutesHelper from "@helpers/routes";
@@ -14,9 +13,10 @@ import {
   windowIsSmallerThanTablet,
 } from "@styles/themes";
 import WindowHelper from "frontend/helpers/window";
+import { BaseProps } from "frontend/types/types";
 import styled from "styled-components";
 
-import Headshot from "../../../../../public/images/headshot-example.jpg";
+import ConsultantAvatar from "../consultant-avatar";
 
 const ConsultantContainer = styled(Card)`
   min-width: 280px;
@@ -33,17 +33,6 @@ const ConsultantContainerLeftSide = styled.div`
     flex-direction: column;
     text-align: center;
     align-items: center;
-  }
-`;
-
-const Avatar = styled.div`
-  min-width: 200px;
-  min-height: 200px;
-  width: 200px;
-  height: 200px;
-  margin: ${(p) => p.theme.space.medium} 0px;
-  img {
-    border-radius: 8px;
   }
 `;
 
@@ -95,7 +84,12 @@ const BookButton = styled(Button)`
   }
 `;
 
-const ConsultantItem = ({ consultant }: { consultant: ConsultantResult }) => {
+interface ConsultantItemProps extends BaseProps {
+  consultant: ConsultantResult;
+}
+// TODO: How do we get the types from the API
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const ConsultantItem = ({ className, id, consultant }: ConsultantItemProps) => {
   const { width } = WindowHelper.useWindowSize();
   const maxDescriptionSize = (() => {
     if (width < BP_PHONE_INT) return 200;
@@ -105,11 +99,9 @@ const ConsultantItem = ({ consultant }: { consultant: ConsultantResult }) => {
   })();
   const isSmallerThanTablet = windowIsSmallerThanTablet(width);
   return (
-    <ConsultantContainer key={consultant.id}>
+    <ConsultantContainer key={consultant.id} className={className} id={id}>
       <ConsultantContainerLeftSide>
-        <Avatar>
-          <Image src={Headshot} alt="headshot"></Image>
-        </Avatar>
+        <ConsultantAvatar avatarURL={consultant.avatarURL} />
         <ConsultantDetail>
           <TagLine>
             Ex. Google, Ex. LinkedIn, Ex. Twitter Software Architect

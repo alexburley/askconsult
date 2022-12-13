@@ -25,8 +25,14 @@ const routes = {
   clientHowItWorks: always("/how-it-works" as const),
   clientFAQ: always("/faq" as const),
   clientSupport: always("/support" as const),
+  payForBooking: (id: string) => `/consultants/${id}/book` as const,
 } as const;
 
+/**
+ *
+ * Data Access idea:
+ * RoutesHelper.routes.XYZ
+ */
 export default class RoutesHelper {
   static routes = routes;
   static useRouter = useRouter;

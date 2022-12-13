@@ -1,4 +1,4 @@
-import TRPCClient from "frontend/helpers/api/trpc";
+import API from "frontend/helpers/api/trpc";
 import AuthHelper from "frontend/helpers/auth";
 import { SiteStoreProvider } from "frontend/helpers/site-store";
 import { AppType } from "next/dist/shared/lib/utils";
@@ -23,4 +23,4 @@ const AskConsultNextApp: AppType = ({ Component, pageProps }) => {
   );
 };
 
-export default TRPCClient.withTRPC(AskConsultNextApp);
+export default API.withTRPC(AskConsultNextApp);

@@ -7,6 +7,7 @@ const schema = Type.Object({
   occupation: Type.String(),
   name: Type.String(),
   description: Type.Optional(Type.String()),
+  avatarURL: Type.Optional(Type.String()),
 });
 
 export type ConsultantModelAttributes = Static<typeof schema>;
@@ -20,6 +21,7 @@ export class ConsultantModel
   name: string;
   description?: string;
   id: string;
+  avatarURL: string;
 
   constructor(attributes: ConsultantModelAttributes) {
     super(attributes, schema);
@@ -27,14 +29,17 @@ export class ConsultantModel
     this.name = attributes.name;
     this.occupation = attributes.occupation;
     this.description = attributes.description;
+    // TODO: Make a proper default Image URL
+    this.avatarURL = attributes.avatarURL || "/images/headshot-example";
   }
 
-  result() {
+  result(): ConsultantResult {
     return {
       id: this.id,
       name: this.name,
       occupation: this.occupation,
       description: this.description,
+      avatarURL: this.avatarURL,
     };
   }
 }

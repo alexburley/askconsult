@@ -3,7 +3,7 @@ import Button from "@components/library/button";
 import Form from "@components/library/forms/form";
 import FormField from "@components/library/forms/form-field";
 import FormHandler from "@components/library/forms/form-handler";
-import TRPCClient from "@helpers/api";
+import API from "@helpers/api";
 import { BP_TABLET } from "@styles/themes";
 import RoutesHelper from "@helpers/routes";
 import styled from "styled-components";
@@ -77,7 +77,7 @@ const ProcessItem = styled.li`
 const ApplyToBeConsultantPage = () => {
   const router = RoutesHelper.useRouter();
   const { mutate: sendConsultantApplication } =
-    TRPCClient.consultants.sendConsultantApplication.useMutation();
+    API.consultants.sendConsultantApplication.useMutation();
 
   const onSubmit = (values) => {
     sendConsultantApplication({

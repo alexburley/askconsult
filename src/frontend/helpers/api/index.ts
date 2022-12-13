@@ -1,4 +1,4 @@
-import TRPCClient from "./trpc";
+import API from "./trpc";
 export * from "./trpc";
 
-export default TRPCClient;
+export default API;
