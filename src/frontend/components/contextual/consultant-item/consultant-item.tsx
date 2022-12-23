@@ -115,9 +115,7 @@ const ConsultantItem = ({ className, id, consultant }: ConsultantItemProps) => {
               : LOREM_IPSUM}
           </Description>
         </ConsultantDetail>
-        {isSmallerThanTablet && (
-          <BookButton variant="contained">£2.00 per Hour</BookButton>
-        )}
+        {isSmallerThanTablet && <BookButton>£2.00 per Hour</BookButton>}
         {/* TODO: Bug with rating aria label */}
         {isSmallerThanTablet && <Rating precision={0.25} readOnly value={3} />}
       </ConsultantContainerLeftSide>
@@ -128,9 +126,7 @@ const ConsultantItem = ({ className, id, consultant }: ConsultantItemProps) => {
             <RateUnit>Per hour</RateUnit>
           </div>
           <Link href={RoutesHelper.routes.bookConsultant(consultant.id)}>
-            <BookButton className="bg-teal-700" variant="contained">
-              Book
-            </BookButton>
+            <BookButton className="bg-teal-700">Book</BookButton>
           </Link>
           <Rating
             precision={0.25}

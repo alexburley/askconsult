@@ -1,115 +1,19 @@
 import Button from "@components/library/button";
 import Icon, { BurgerIcon, UserIcon } from "@components/library/icon";
+import Link from "@components/library/link";
 import RoutesHelper from "@helpers/routes";
 import {
-  BP_PHONE,
-  BP_TABLET,
   windowIsGreaterThanPhone,
   windowIsSmallerThanTablet,
 } from "@styles/themes";
 import AuthHelper from "frontend/helpers/auth";
 import WindowHelper from "frontend/helpers/window";
+import { BaseProps } from "frontend/types/types";
 import { useState } from "react";
-import styled, { css } from "styled-components";
 
-import Link from "../../library/link";
+const TW_NAV_LINK = "w-16 whitespace-nowrap my-auto hover:text-teal-700";
 
-const StyledNav = styled.nav`
-  background-color: ${(p) => p.theme.colors.primary.regular};
-  color: ${(p) => p.theme.colors.contrast.regular};
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  height: 64px;
-  border-bottom: 1px solid ${(p) => p.theme.colors.primary.light};
-`;
-
-const LogoLink = styled(Link)`
-  text-decoration: 1200;
-  font-size: 24px;
-  padding: 12px;
-  font-weight: 800;
-  &:hover {
-    font-weight: normal;
-    font-weight: 800;
-  }
-`;
-
-const NavGroupContainer = styled.div<{ pos: "L" | "R" }>`
-  padding-left: ${({ pos }) => (pos === "L" ? "16px" : 0)};
-  padding-right: ${({ pos }) => (pos === "R" ? "48px" : 0)};
-  margin: auto 0;
-  display: flex;
-  gap: 16px;
-  font-weight: bold;
-
-  @media (max-width: ${BP_PHONE}) {
-    padding-right: ${({ pos }) => (pos === "R" ? "16px" : 0)};
-  }
-`;
-
-const NavTextLink = styled(Link)`
-  width: 80px;
-  font-size: 1.1rem;
-  white-space: nowrap;
-  margin: auto 0;
-
-  ${(props) =>
-    props.id === "logout" &&
-    css`
-      padding-left: 16px;
-      @media (max-width: ${BP_PHONE}) {
-      }
-    `};
-`;
-
-const ApplyButton = styled(Button)`
-  && {
-    margin-right: 64px;
-    font-weight: bold;
-    background-color: #e13737;
-    width: 200px;
-
-    &:hover {
-      background-color: ${(p) => p.theme.colors.primary.dark};
-    }
-
-    @media (max-width: ${BP_TABLET}) {
-      width: 160px;
-      margin-right: 32px;
-      font-size: 0.75rem;
-    }
-  }
-`;
-
-const StyledIcon = styled(Icon)`
-  height: 100%;
-`;
-
-const ButtonIcon = styled.button`
-  border: none;
-  color: ${(p) => p.theme.colors.contrast.regular};
-  background-color: transparent;
-  text-align: center;
-  font-size: 18px;
-  cursor: pointer;
-`;
-
-const MobileMenu = styled.div`
-  background-color: ${(p) => p.theme.colors.primary.light};
-  color: ${(p) => p.theme.colors.contrast.regular};
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  border-bottom: 1px solid ${(p) => p.theme.colors.primary.lightest};
-  font-weight: bold;
-`;
-
-export type NavProps = {
-  className?: string;
-};
-
-const Nav = ({ className }: NavProps) => {
+const Nav = ({ className }: BaseProps) => {
   const { user } = AuthHelper.useUser();
   const { width } = WindowHelper.useWindowSize();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -117,93 +21,122 @@ const Nav = ({ className }: NavProps) => {
   const isPhone = windowIsSmallerThanTablet(width);
   return (
     <>
-      <StyledNav className={className}>
-        <NavGroupContainer pos="L">
-          <LogoLink href={RoutesHelper.routes.home()}>
+      <nav
+        className={`bg-teal-500 text-white flex flex-row justify-between h-16 border-b-1 border-b-teal-300 ${className}`}
+      >
+        <div className="pl-2 my-auto flex gap-4 font-bold">
+          <Link
+            className="text-2xl p-3 text-bold hover:text-teal-700"
+            href={RoutesHelper.routes.home()}
+          >
             {isTabletOrGreater ? "AskConsult" : "AC"}
-          </LogoLink>
-        </NavGroupContainer>
-        <NavGroupContainer pos="R">
+          </Link>
+        </div>
+        <div className="pr-4 sm:pr-12 my-auto flex gap-4 font-bold">
           {(() => {
             if (isTabletOrGreater) {
               if (user) {
                 return (
                   <>
                     <Link href={RoutesHelper.routes.applyToBeAConsultant()}>
-                      <ApplyButton variant="contained">
+                      <Button className="mr-16 font-bold bg-red-600 w-48 md:w-40 md:mr-8 hover:bg-teal-600">
                         Be a consultant
-                      </ApplyButton>
+                      </Button>
                     </Link>
-                    <Link href={RoutesHelper.routes.profile()}>
-                      <StyledIcon Icon={UserIcon} />
+                    <Link
+                      className="hover:text-teal-700"
+                      href={RoutesHelper.routes.profile()}
+                    >
+                      <Icon className="h-full" Icon={UserIcon} />
                     </Link>
-                    <NavTextLink
+                    <Link
+                      className="w-16 whitespace-nowrap my-auto hover:text-teal-700 pl-4"
                       id="logout"
                       href={RoutesHelper.routes.logout()}
                     >
                       Logout
-                    </NavTextLink>
+                    </Link>
                   </>
                 );
               } else {
                 return (
                   <>
-                    <NavTextLink href={RoutesHelper.routes.authenticate()}>
+                    <Link
+                      className={TW_NAV_LINK}
+                      href={RoutesHelper.routes.authenticate()}
+                    >
                       Sign Up
-                    </NavTextLink>
-                    <NavTextLink href={RoutesHelper.routes.authenticate()}>
+                    </Link>
+                    <Link
+                      className={TW_NAV_LINK}
+                      href={RoutesHelper.routes.authenticate()}
+                    >
                       Login
-                    </NavTextLink>
+                    </Link>
                   </>
                 );
               }
             } else {
               return (
-                <ButtonIcon
+                <button
+                  className="border-0 text-white bg-transparent text-center text-lg"
                   onClick={() => {
                     setMobileMenuOpen(!mobileMenuOpen);
                   }}
                 >
-                  <StyledIcon Icon={BurgerIcon} />
-                </ButtonIcon>
+                  <Icon Icon={BurgerIcon} />
+                </button>
               );
             }
           })()}
-        </NavGroupContainer>
-      </StyledNav>
+        </div>
+      </nav>
       {isPhone && mobileMenuOpen && (
-        <MobileMenu>
+        <div className="bg-teal-300 text-white p-4 flex flex-col border-b-1 border-teal-200 font-bold">
           {(() => {
             if (user) {
               return (
                 <>
-                  <NavTextLink
+                  <Link
+                    className={TW_NAV_LINK}
                     href={RoutesHelper.routes.applyToBeAConsultant()}
                   >
                     Apply
-                  </NavTextLink>
-                  <NavTextLink href={RoutesHelper.routes.profile()}>
+                  </Link>
+                  <Link
+                    className={TW_NAV_LINK}
+                    href={RoutesHelper.routes.profile()}
+                  >
                     My Profile
-                  </NavTextLink>
-                  <NavTextLink href={RoutesHelper.routes.logout()}>
+                  </Link>
+                  <Link
+                    className={TW_NAV_LINK}
+                    href={RoutesHelper.routes.logout()}
+                  >
                     Logout
-                  </NavTextLink>
+                  </Link>
                 </>
               );
             } else {
               return (
                 <>
-                  <NavTextLink href={RoutesHelper.routes.authenticate()}>
+                  <Link
+                    className={TW_NAV_LINK}
+                    href={RoutesHelper.routes.authenticate()}
+                  >
                     Sign Up
-                  </NavTextLink>
-                  <NavTextLink href={RoutesHelper.routes.authenticate()}>
+                  </Link>
+                  <Link
+                    className={TW_NAV_LINK}
+                    href={RoutesHelper.routes.authenticate()}
+                  >
                     Login
-                  </NavTextLink>
+                  </Link>
                 </>
               );
             }
           })()}
-        </MobileMenu>
+        </div>
       )}
     </>
   );
