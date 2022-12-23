@@ -25,7 +25,7 @@ const routes = {
   clientHowItWorks: always("/how-it-works" as const),
   clientFAQ: always("/faq" as const),
   clientSupport: always("/support" as const),
-  payForBooking: (id: string) => `/consultants/${id}/book` as const,
+  payForBooking: (id: string) => `/consultants/${id}/pay` as const,
 } as const;
 
 /**

@@ -4,8 +4,8 @@ import Form from "@components/library/forms/form";
 import FormField from "@components/library/forms/form-field";
 import FormHandler from "@components/library/forms/form-handler";
 import API from "@helpers/api";
-import { BP_TABLET } from "@styles/themes";
 import RoutesHelper from "@helpers/routes";
+import { BP_TABLET } from "@styles/themes";
 import styled from "styled-components";
 
 const Container = styled.div`

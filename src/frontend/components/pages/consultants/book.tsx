@@ -59,7 +59,7 @@ const ConsultantContainer = styled.div`
     flex-direction: row;
   }
 `;
-
+// TODO: Neaten this page
 const BookConsultantPage = () => {
   const router = RoutesHelper.useRouter();
   const { consultantId } = RoutesHelper.usePathParams(router);
@@ -102,7 +102,7 @@ const BookConsultantPage = () => {
               <FormLabel htmlFor="phone">Phone</FormLabel>
               <FormField id="phone" name="phone" />
               <StyledApplyButton variant="contained" type="submit">
-                Apply!
+                Book and Pay!
               </StyledApplyButton>
             </StyledApplicationForm>
           </FormHandler>
