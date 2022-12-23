@@ -1,14 +1,5 @@
 import { BasePropsWithChildren } from "frontend/types/types";
 import NextLink from "next/link";
-import styled from "styled-components";
-
-const StyledAnchor = styled.a`
-  &:hover {
-    font-weight: bolder;
-    color: ${(p) => p.theme.colors.primary.extradark};
-    cursor: pointer;
-  }
-`;
 
 export interface LinkProps extends BasePropsWithChildren {
   href: string;
@@ -26,14 +17,20 @@ const Link = ({
   passHref = true,
 }: LinkProps) => {
   return external ? (
-    <StyledAnchor id={id} className={className} href={href} target="_blank">
+    <a
+      id={id}
+      className={`${className} hover:font-bold hover:text-teal-800 hover:cursor-pointer`}
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+    >
       {children}
-    </StyledAnchor>
+    </a>
   ) : (
     <NextLink href={href} passHref={passHref}>
-      <StyledAnchor id={id} className={className}>
+      <a id={id} className={className}>
         {children}
-      </StyledAnchor>
+      </a>
     </NextLink>
   );
 };

@@ -128,7 +128,9 @@ const ConsultantItem = ({ className, id, consultant }: ConsultantItemProps) => {
             <RateUnit>Per hour</RateUnit>
           </div>
           <Link href={RoutesHelper.routes.bookConsultant(consultant.id)}>
-            <BookButton variant="contained">Book</BookButton>
+            <BookButton className="bg-teal-700" variant="contained">
+              Book
+            </BookButton>
           </Link>
           <Rating
             precision={0.25}
