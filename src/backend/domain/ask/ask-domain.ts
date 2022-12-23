@@ -1,5 +1,5 @@
-import ConsultantRepositoryAdapter from "@adapters/outbound/repositories/consultant-repository";
 import { EventPublisherAdapter } from "@adapters/outbound/event-publisher";
+import ConsultantRepositoryAdapter from "@adapters/outbound/repositories/consultant-repository";
 import OrderRepositoryAdapter from "@adapters/outbound/repositories/order-repository";
 import { DomainEvent } from "@domain/events";
 import ConsultantModel from "@models/consultant/consultant";

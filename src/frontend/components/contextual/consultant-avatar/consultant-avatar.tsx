@@ -21,6 +21,7 @@ interface ConsultantAvatarProps extends BaseProps {
 const ConsultantAvatar = ({
   className,
   id,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   avatarURL,
 }: ConsultantAvatarProps) => {
   return (

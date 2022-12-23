@@ -22,24 +22,24 @@ const Nav = ({ className }: BaseProps) => {
   return (
     <>
       <nav
-        className={`bg-teal-500 text-white flex flex-row justify-between h-16 border-b-1 border-b-teal-300 ${className}`}
+        className={`border-b-1 flex h-16 flex-row justify-between border-b-teal-300 bg-teal-500 text-white ${className}`}
       >
-        <div className="pl-2 my-auto flex gap-4 font-bold">
+        <div className="my-auto flex gap-4 pl-2 font-bold">
           <Link
-            className="text-2xl p-3 text-bold hover:text-teal-700"
+            className="text-bold p-3 text-2xl hover:text-teal-700"
             href={RoutesHelper.routes.home()}
           >
             {isTabletOrGreater ? "AskConsult" : "AC"}
           </Link>
         </div>
-        <div className="pr-4 sm:pr-12 my-auto flex gap-4 font-bold">
+        <div className="my-auto flex gap-4 pr-4 font-bold sm:pr-12">
           {(() => {
             if (isTabletOrGreater) {
               if (user) {
                 return (
                   <>
                     <Link href={RoutesHelper.routes.applyToBeAConsultant()}>
-                      <Button className="mr-16 font-bold bg-red-600 w-48 md:w-40 md:mr-8 hover:bg-teal-600">
+                      <Button className="mr-16 w-48 bg-red-600 font-bold hover:bg-teal-600 md:mr-8 md:w-40">
                         Be a consultant
                       </Button>
                     </Link>
@@ -50,7 +50,7 @@ const Nav = ({ className }: BaseProps) => {
                       <Icon className="h-full" Icon={UserIcon} />
                     </Link>
                     <Link
-                      className="w-16 whitespace-nowrap my-auto hover:text-teal-700 pl-4"
+                      className="my-auto w-16 whitespace-nowrap pl-4 hover:text-teal-700"
                       id="logout"
                       href={RoutesHelper.routes.logout()}
                     >
@@ -79,7 +79,7 @@ const Nav = ({ className }: BaseProps) => {
             } else {
               return (
                 <button
-                  className="border-0 text-white bg-transparent text-center text-lg"
+                  className="border-0 bg-transparent text-center text-lg text-white"
                   onClick={() => {
                     setMobileMenuOpen(!mobileMenuOpen);
                   }}
@@ -92,7 +92,7 @@ const Nav = ({ className }: BaseProps) => {
         </div>
       </nav>
       {isPhone && mobileMenuOpen && (
-        <div className="bg-teal-300 text-white p-4 flex flex-col border-b-1 border-teal-200 font-bold">
+        <div className="border-b-1 flex flex-col border-teal-200 bg-teal-300 p-4 font-bold text-white">
           {(() => {
             if (user) {
               return (

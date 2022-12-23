@@ -19,7 +19,7 @@ const Link = ({
   return external ? (
     <a
       id={id}
-      className={`${className} hover:font-bold hover:text-teal-800 hover:cursor-pointer`}
+      className={`${className} hover:cursor-pointer hover:font-bold hover:text-teal-800`}
       href={href}
       target="_blank"
       rel="noreferrer"
