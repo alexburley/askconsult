@@ -1,3 +1,5 @@
+import "../frontend/styles/global.css";
+
 import API from "frontend/helpers/api/trpc";
 import AuthHelper from "frontend/helpers/auth";
 import { SiteStoreProvider } from "frontend/helpers/site-store";
