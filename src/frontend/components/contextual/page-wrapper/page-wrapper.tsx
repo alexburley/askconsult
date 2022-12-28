@@ -3,21 +3,16 @@ import { BasePropsWithChildren } from "frontend/types/types";
 import Footer from "../footer";
 import Nav from "../nav";
 
-export interface PageWrapperProps extends BasePropsWithChildren {
-  noPad?: boolean;
-}
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface PageWrapperProps extends BasePropsWithChildren {}
 
-const PageWrapper = ({
-  className,
-  children,
-  noPad = false,
-}: PageWrapperProps) => {
+const PageWrapper = ({ className, children }: PageWrapperProps) => {
   return (
     <div
       className={`flex h-1 min-h-screen flex-col justify-between ${className} `}
     >
       <Nav />
-      <div className={`${noPad && "pb-4"}`}>{children}</div>
+      <div>{children}</div>
       <Footer />
     </div>
   );

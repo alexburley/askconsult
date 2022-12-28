@@ -22,7 +22,7 @@ const Nav = ({ className }: BaseProps) => {
   return (
     <>
       <nav
-        className={`border-b-1 flex h-16 flex-row justify-between border-b-p-300 bg-p-500 text-white ${className}`}
+        className={`border-b-1 flex h-16 flex-row justify-between border-b-p-300 bg-p-500 text-c ${className}`}
       >
         <div className="my-auto flex gap-4 pl-2 font-bold">
           <Link
@@ -39,7 +39,7 @@ const Nav = ({ className }: BaseProps) => {
                 return (
                   <>
                     <Link href={RoutesHelper.routes.applyToBeAConsultant()}>
-                      <Button className="mr-16 w-48 bg-red-600 font-bold hover:bg-p-600 md:mr-8 md:w-40">
+                      <Button className="mr-16 w-48 bg-s font-bold md:mr-8 md:w-40">
                         Be a consultant
                       </Button>
                     </Link>
@@ -79,7 +79,7 @@ const Nav = ({ className }: BaseProps) => {
             } else {
               return (
                 <button
-                  className="border-0 bg-transparent text-center text-lg text-white"
+                  className="border-0 bg-transparent text-center text-lg text-c"
                   onClick={() => {
                     setMobileMenuOpen(!mobileMenuOpen);
                   }}
@@ -92,7 +92,7 @@ const Nav = ({ className }: BaseProps) => {
         </div>
       </nav>
       {isPhone && mobileMenuOpen && (
-        <div className="border-b-1 flex flex-col border-p-200 bg-p-300 p-4 font-bold text-white">
+        <div className="border-b-1 flex flex-col border-p-200 bg-p-300 p-4 font-bold text-c">
           {(() => {
             if (user) {
               return (

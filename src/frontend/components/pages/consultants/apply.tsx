@@ -93,7 +93,7 @@ const ApplyToBeConsultantPage = () => {
   };
 
   return (
-    <PageWrapper noPad={true}>
+    <PageWrapper>
       <Container>
         <HowItWorks>
           <ApplyHeader>Consultant Applications</ApplyHeader>

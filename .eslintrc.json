@@ -43,6 +43,7 @@
     "simple-import-sort/imports": "warn",
     "simple-import-sort/exports": "warn",
     "import/export": "off",
-    "react-hooks/rules-of-hooks": "off"
+    "react-hooks/rules-of-hooks": "off",
+    "@typescript-eslint/no-empty-interface": "off"
   }
 }

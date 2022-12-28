@@ -73,7 +73,7 @@ const BookConsultantPage = () => {
   };
 
   return (
-    <PageWrapper noPad={true}>
+    <PageWrapper>
       <Container>
         <ConsultantContainer>
           {consultantQuery.data && (

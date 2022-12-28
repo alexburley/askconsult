@@ -19,7 +19,7 @@ const Link = ({
   return external ? (
     <a
       id={id}
-      className={`hover:cursor-pointer hover:font-bold hover:text-p-800 ${className}`}
+      className={`hover:cursor-pointer hover:font-bold hover:text-s ${className}`}
       href={href}
       target="_blank"
       rel="noreferrer"
@@ -28,10 +28,7 @@ const Link = ({
     </a>
   ) : (
     <NextLink href={href} passHref={passHref}>
-      <a
-        id={id}
-        className={`hover:cursor-pointer hover:text-p-800 ${className}`}
-      >
+      <a id={id} className={`hover:cursor-pointer hover:text-s ${className}`}>
         {children}
       </a>
     </NextLink>
