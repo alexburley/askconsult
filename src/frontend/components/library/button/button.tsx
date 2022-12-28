@@ -7,7 +7,7 @@ interface ButtonProps
 const Button = ({ className, children, ...props }: ButtonProps) => {
   return (
     <button
-      className={`min-w-12 min-h-12 text-md rounded-md p-2 text-white drop-shadow-md ${className}`}
+      className={`min-w-12 min-h-12 text-md rounded-md bg-p p-2 text-c drop-shadow-md ${className}`}
       {...(props as { type: "button" })}
     >
       {children}

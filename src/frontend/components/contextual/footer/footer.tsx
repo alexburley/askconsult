@@ -6,8 +6,7 @@ import SITE_MAP_ITEMS from "./site-map-items";
 export type FooterProps = Record<string, unknown>;
 const Footer = (props_: FooterProps) => {
   return (
-    // TODO: Candidate for a box
-    <footer className="mt-auto flex flex-col border-t-[1px] border-teal-100 bg-slate-100 font-light text-slate-800">
+    <footer className="mt-auto flex flex-col border-t border-p-100 bg-slate-100 font-light text-slate-800">
       <Box className="justify-between gap-12 px-10 py-5 md:px-20">
         <Box className="items-center gap-4 pl-2 sm:flex-row sm:items-start sm:pl-4 ">
           {SITE_MAP_ITEMS.map(([header, list]) => (
@@ -33,14 +32,14 @@ const Footer = (props_: FooterProps) => {
             <br />
             <p>
               {/* CLICKABLE style */}
-              <span className="cursor-pointer font-semibold text-teal-800">
+              <span className="cursor-pointer font-semibold text-p-800">
                 support@askconsult.io
               </span>
             </p>
           </div>
         </Box>
       </Box>
-      <div className="m-auto w-full border-t border-teal-300 p-4 text-center">
+      <div className="m-auto w-full border-t border-p-300 p-4 text-center">
         <span>Copyright © askconsult.io 2022. </span>
         <span>All Rights Reserved.</span>
       </div>

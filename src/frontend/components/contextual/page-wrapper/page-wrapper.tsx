@@ -13,7 +13,9 @@ const PageWrapper = ({
   noPad = false,
 }: PageWrapperProps) => {
   return (
-    <div className={`m-0 flex h-screen flex-col ${className} `}>
+    <div
+      className={`flex h-1 min-h-screen flex-col justify-between ${className} `}
+    >
       <Nav />
       <div className={`${noPad && "pb-4"}`}>{children}</div>
       <Footer />

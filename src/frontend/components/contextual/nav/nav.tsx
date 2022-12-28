@@ -11,7 +11,7 @@ import WindowHelper from "frontend/helpers/window";
 import { BaseProps } from "frontend/types/types";
 import { useState } from "react";
 
-const TW_NAV_LINK = "w-16 whitespace-nowrap my-auto hover:text-teal-700";
+const TW_NAV_LINK = "w-16 whitespace-nowrap my-auto hover:text-p-700";
 
 const Nav = ({ className }: BaseProps) => {
   const { user } = AuthHelper.useUser();
@@ -22,11 +22,11 @@ const Nav = ({ className }: BaseProps) => {
   return (
     <>
       <nav
-        className={`border-b-1 flex h-16 flex-row justify-between border-b-teal-300 bg-teal-500 text-white ${className}`}
+        className={`border-b-1 flex h-16 flex-row justify-between border-b-p-300 bg-p-500 text-white ${className}`}
       >
         <div className="my-auto flex gap-4 pl-2 font-bold">
           <Link
-            className="text-bold p-3 text-2xl hover:text-teal-700"
+            className="text-bold p-3 text-2xl hover:text-p-700"
             href={RoutesHelper.routes.home()}
           >
             {isTabletOrGreater ? "AskConsult" : "AC"}
@@ -39,18 +39,18 @@ const Nav = ({ className }: BaseProps) => {
                 return (
                   <>
                     <Link href={RoutesHelper.routes.applyToBeAConsultant()}>
-                      <Button className="mr-16 w-48 bg-red-600 font-bold hover:bg-teal-600 md:mr-8 md:w-40">
+                      <Button className="mr-16 w-48 bg-red-600 font-bold hover:bg-p-600 md:mr-8 md:w-40">
                         Be a consultant
                       </Button>
                     </Link>
                     <Link
-                      className="hover:text-teal-700"
+                      className="hover:text-p-700"
                       href={RoutesHelper.routes.profile()}
                     >
                       <Icon className="h-full" Icon={UserIcon} />
                     </Link>
                     <Link
-                      className="my-auto w-16 whitespace-nowrap pl-4 hover:text-teal-700"
+                      className="my-auto w-16 whitespace-nowrap pl-4 hover:text-p-700"
                       id="logout"
                       href={RoutesHelper.routes.logout()}
                     >
@@ -92,7 +92,7 @@ const Nav = ({ className }: BaseProps) => {
         </div>
       </nav>
       {isPhone && mobileMenuOpen && (
-        <div className="border-b-1 flex flex-col border-teal-200 bg-teal-300 p-4 font-bold text-white">
+        <div className="border-b-1 flex flex-col border-p-200 bg-p-300 p-4 font-bold text-white">
           {(() => {
             if (user) {
               return (
