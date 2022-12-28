@@ -63,7 +63,7 @@ const GlobalTheme = {
     "5xl": "3rem",
     "6xl": "4rem",
   },
-};
+} as const;
 
 export const BP_PHONE_INT = 550;
 export const BP_TABLET_INT = 1100;

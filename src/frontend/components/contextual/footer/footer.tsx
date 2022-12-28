@@ -1,125 +1,49 @@
 import Link from "@components/library/link";
-import { BP_PHONE } from "@styles/themes";
-import styled from "styled-components";
 
 import SITE_MAP_ITEMS from "./site-map-items";
-
-const FooterContainer = styled.footer`
-  background-color: ${(p) => p.theme.colors.neutral.light};
-  border-top: 1px solid ${(p) => p.theme.colors.primary.light};
-  color: ${(p) => p.theme.colors.contrast.inverse.regular};
-  font-weight: ${(p) => p.theme.fontWeights.light};
-  display: flex;
-  flex-direction: column;
-  margin-top: auto;
-
-  @media (max-width: ${BP_PHONE}) {
-    text-align: center;
-  }
-`;
-
-const TopFooter = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 80px;
-  gap: 48px;
-  @media (max-width: ${BP_PHONE}) {
-    padding: 20px 40px;
-    flex-flow: column;
-  }
-`;
-
-const RightTopFooter = styled.div`
-  margin: 0 auto;
-`;
-const ContactUs = styled.div`
-  width: 200px;
-`;
-const EmailLink = styled.span`
-  font-weight: bolder;
-  color: ${(p) => p.theme.colors.primary.extradark};
-`;
-
-const SiteMap = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  width: 100%;
-  gap: 16px;
-  padding-left: 16px;
-  color: ${(p) => p.theme.colors.contrast.inverse.regular};
-
-  @media (max-width: ${BP_PHONE}) {
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    padding-left: 8px;
-  }
-`;
-
-const SiteMapAreaContainer = styled.div`
-  width: 160px;
-`;
-
-const SiteMapAreaHeader = styled.h3`
-  font-weight: lighter;
-  letter-spacing: 1px;
-`;
-const SiteMapAreaList = styled.ul`
-  list-style-type: none;
-  padding: 0;
-  margin: 16px 0px 0px 0px;
-`;
-const SiteMapAreaItem = styled.li``;
-
-const BottomFooter = styled.div`
-  width: 100%;
-  border-top: 1px solid ${(p) => p.theme.colors.primary.light};
-  padding: 16px;
-  margin: auto;
-  text-align: center;
-`;
-
-const Copyright = styled.span``;
-const AllRights = styled.span``;
 
 export type FooterProps = Record<string, unknown>;
 const Footer = (props_: FooterProps) => {
   return (
-    <FooterContainer>
-      <TopFooter>
-        <SiteMap>
+    // TODO: Candidate for a box
+    <footer className="mt-auto flex flex-col border-t-[1px] border-teal-100 bg-slate-100 font-light text-slate-800">
+      <div className="flex flex-col justify-between gap-12 px-10 py-5 md:flex-row md:px-20">
+        <div className="flex w-full flex-col items-center justify-center gap-4 pl-2 sm:flex-row sm:items-start sm:pl-4 ">
           {SITE_MAP_ITEMS.map(([header, list]) => (
-            <SiteMapAreaContainer key={header}>
-              <SiteMapAreaHeader>{header}</SiteMapAreaHeader>
-              <SiteMapAreaList>
+            <div className="w-40" key={header}>
+              <h3 className="font-light tracking-wide">{header}</h3>
+              <ul className="mt-4 list-none p-0">
                 {list.map(([title, href, opts = {}]) => (
-                  <SiteMapAreaItem key={title}>
+                  <li key={title}>
                     <Link href={href} external={opts.external}>
                       {title}
                     </Link>
-                  </SiteMapAreaItem>
+                  </li>
                 ))}
-              </SiteMapAreaList>
-            </SiteMapAreaContainer>
+              </ul>
+            </div>
           ))}
-        </SiteMap>
-        <RightTopFooter>
-          <ContactUs>
+        </div>
+        <div className="mx-auto mt-0">
+          <div className="w-48">
             <p>
               <b>Need to get in touch?</b>
             </p>
             <br />
             <p>
-              Contact us at <EmailLink>support@askconsult.io</EmailLink>
+              {/* CLICKABLE style */}
+              <span className="cursor-pointer font-semibold text-teal-800">
+                support@askconsult.io
+              </span>
             </p>
-          </ContactUs>
-        </RightTopFooter>
-      </TopFooter>
-      <BottomFooter>
-        <Copyright>Copyright © askconsult.io 2022. </Copyright>
-        <AllRights>All Rights Reserved.</AllRights>
-      </BottomFooter>
-    </FooterContainer>
+          </div>
+        </div>
+      </div>
+      <div className="m-auto w-full border-t border-teal-300 p-4 text-center">
+        <span>Copyright © askconsult.io 2022. </span>
+        <span>All Rights Reserved.</span>
+      </div>
+    </footer>
   );
 };
 
