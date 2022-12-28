@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer components {
-  /* .click-text {
-    @apply text-p-600 hover:text-p-800;
-  } */
+  .sm-hide {
+    @apply hidden sm:block;
+  }
 }

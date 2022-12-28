@@ -8,13 +8,13 @@ export interface PageWrapperProps extends BasePropsWithChildren {}
 
 const PageWrapper = ({ className, children }: PageWrapperProps) => {
   return (
-    <div
+    <main
       className={`flex h-1 min-h-screen flex-col justify-between ${className} `}
     >
       <Nav />
       <div>{children}</div>
       <Footer />
-    </div>
+    </main>
   );
 };
 

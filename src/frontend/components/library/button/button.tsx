@@ -1,13 +1,16 @@
 import { BasePropsWithChildren } from "frontend/types/types";
-
 interface ButtonProps
   extends BasePropsWithChildren,
-    React.HTMLProps<HTMLButtonElement> {}
+    React.HTMLProps<HTMLButtonElement> {
+  s?: "m" | "l" | "xl";
+}
 
-const Button = ({ className, children, ...props }: ButtonProps) => {
+const Button = ({ className, children, s = "m", ...props }: ButtonProps) => {
+  const sizeProps =
+    s === "m" ? "px-4 py-2" : s === "l" ? "px-4 py-4" : "px-4 py-8";
   return (
     <button
-      className={`min-w-12 min-h-12 text-md rounded-md bg-p p-2 text-c drop-shadow-md ${className}`}
+      className={`${sizeProps} text-md w-fit rounded-md bg-p text-c drop-shadow-md hover:bg-s ${className}`}
       {...(props as { type: "button" })}
     >
       {children}
