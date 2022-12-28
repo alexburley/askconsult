@@ -143,9 +143,7 @@ const ApplyToBeConsultantPage = () => {
               />
               <FormLabel htmlFor="expectedRate">Expected hourly rate</FormLabel>
               <FormField id="expectedRate" name="expectedRate" />
-              <StyledApplyButton variant="contained" type="submit">
-                Apply!
-              </StyledApplyButton>
+              <StyledApplyButton type="submit">Apply!</StyledApplyButton>
             </StyledApplicationForm>
           </FormHandler>
         </FormContainer>

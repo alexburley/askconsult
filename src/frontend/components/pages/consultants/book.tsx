@@ -101,9 +101,7 @@ const BookConsultantPage = () => {
               <FormField id="email" name="email" />
               <FormLabel htmlFor="phone">Phone</FormLabel>
               <FormField id="phone" name="phone" />
-              <StyledApplyButton variant="contained" type="submit">
-                Book and Pay!
-              </StyledApplyButton>
+              <StyledApplyButton type="submit">Book and Pay!</StyledApplyButton>
             </StyledApplicationForm>
           </FormHandler>
         </FormContainer>
