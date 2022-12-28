@@ -38,11 +38,6 @@ const Nav = ({ className }: BaseProps) => {
               if (user) {
                 return (
                   <>
-                    <Link href={RoutesHelper.routes.applyToBeAConsultant()}>
-                      <Button className="mr-16 w-48 bg-s font-bold md:mr-8 md:w-40">
-                        Be a consultant
-                      </Button>
-                    </Link>
                     <Link
                       className="hover:text-p-700"
                       href={RoutesHelper.routes.profile()}
@@ -61,6 +56,11 @@ const Nav = ({ className }: BaseProps) => {
               } else {
                 return (
                   <>
+                    <Link href={RoutesHelper.routes.applyToBeAConsultant()}>
+                      <Button className="mr-16 bg-red-600 font-bold md:mr-8 md:w-40">
+                        Be a consultant
+                      </Button>
+                    </Link>
                     <Link
                       className={TW_NAV_LINK}
                       href={RoutesHelper.routes.authenticate()}
@@ -99,12 +99,6 @@ const Nav = ({ className }: BaseProps) => {
                 <>
                   <Link
                     className={TW_NAV_LINK}
-                    href={RoutesHelper.routes.applyToBeAConsultant()}
-                  >
-                    Apply
-                  </Link>
-                  <Link
-                    className={TW_NAV_LINK}
                     href={RoutesHelper.routes.profile()}
                   >
                     My Profile
@@ -120,6 +114,12 @@ const Nav = ({ className }: BaseProps) => {
             } else {
               return (
                 <>
+                  <Link
+                    className={TW_NAV_LINK}
+                    href={RoutesHelper.routes.applyToBeAConsultant()}
+                  >
+                    Apply
+                  </Link>
                   <Link
                     className={TW_NAV_LINK}
                     href={RoutesHelper.routes.authenticate()}
